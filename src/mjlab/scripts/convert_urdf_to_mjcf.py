@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Tuple
 
 import os
 import tyro
@@ -32,6 +32,9 @@ class ConvertUrdfConfig:
   keep_resolved_urdf: bool = False
   """Whether to keep the intermediate URDF with resolved asset paths."""
 
+  strip_actuators: bool = True
+  """Remove any ``<actuator>`` blocks from the generated MJCF (recommended)."""
+
 
 def _parse_package_map(entries: tuple[str, ...]) -> Dict[str, Path]:
   mapping: Dict[str, Path] = {}
@@ -58,6 +61,39 @@ def _resolve_package_uris(text: str, mapping: Dict[str, Path], base_dir: Path) -
   return resolved
 
 
+def _strip_actuator_sections(text: str) -> Tuple[str, bool]:
+  """Remove any ``<actuator>`` sections from an MJCF document."""
+
+  lines = text.splitlines()
+  kept_lines: list[str] = []
+  skipping = False
+  removed = False
+
+  for line in lines:
+    if not skipping and "<actuator" in line:
+      removed = True
+      if "</actuator>" in line:
+        continue
+      skipping = True
+      continue
+
+    if skipping:
+      if "</actuator>" in line:
+        skipping = False
+      continue
+
+    kept_lines.append(line)
+
+  if skipping:
+    raise ValueError("Encountered unterminated <actuator> block while stripping actuators.")
+
+  new_text = "\n".join(kept_lines)
+  if text.endswith("\n"):
+    new_text += "\n"
+
+  return new_text, removed
+
+
 def run(cfg: ConvertUrdfConfig) -> None:
   package_map = _parse_package_map(cfg.package_map)
 
@@ -69,6 +105,12 @@ def run(cfg: ConvertUrdfConfig) -> None:
 
   cfg.output_path.parent.mkdir(parents=True, exist_ok=True)
   convert_urdf_to_mjcf(resolved_urdf_path, cfg.output_path)
+
+  if cfg.strip_actuators:
+    mjcf_text = cfg.output_path.read_text()
+    stripped_text, removed = _strip_actuator_sections(mjcf_text)
+    if removed:
+      cfg.output_path.write_text(stripped_text)
 
   if not cfg.keep_resolved_urdf:
     resolved_urdf_path.unlink(missing_ok=True)

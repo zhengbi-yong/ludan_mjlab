@@ -138,10 +138,15 @@ validate the pipeline before launching a large job.
 
    The command generates `ludan_v0/mjcf/ludan_v0.xml` and removes temporary files by default.
 
-2. **Point the custom task at the converted MJCF**:
+2. **Override the MJCF location (optional)**:
+
+   The training config now discovers `ludan_v0/mjcf/ludan_v0.xml` automatically when you
+   run commands from this repository (Windows PowerShell users can run `uv run` without
+   additional setup). If you copy the assets elsewhere, point the loader at the new
+   location:
 
    ```bash
-   export MJLAB_CUSTOM_ROBOT_XML=$(pwd)/ludan_v0/mjcf/ludan_v0.xml
+   export MJLAB_CUSTOM_ROBOT_XML=/absolute/path/to/ludan_v0.xml
    ```
 
    Useful overrides for the Ludan V0 robot:

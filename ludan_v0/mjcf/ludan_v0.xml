@@ -244,39 +244,6 @@
     </body>
   </worldbody>
 
-  <actuator>
-    <motor name="RightShoulderPitch_ctrl" joint="RightShoulderPitch" class="motor" />
-    <motor name="RightShoulderRoll_ctrl" joint="RightShoulderRoll" class="motor" />
-    <motor name="RightShoulderYaw_ctrl" joint="RightShoulderYaw" class="motor" />
-    <motor name="RightElbowPitch_ctrl" joint="RightElbowPitch" class="motor" />
-    <motor name="RightElbowYaw_ctrl" joint="RightElbowYaw" class="motor" />
-    <motor name="RightWristPitch_ctrl" joint="RightWristPitch" class="motor" />
-    <motor name="RightWristRoll_ctrl" joint="RightWristRoll" class="motor" />
-    <motor name="LeftShoulderPitch_ctrl" joint="LeftShoulderPitch" class="motor" />
-    <motor name="LeftShoulderRoll_ctrl" joint="LeftShoulderRoll" class="motor" />
-    <motor name="LeftShoulderYaw_ctrl" joint="LeftShoulderYaw" class="motor" />
-    <motor name="LeftElbowPitch_ctrl" joint="LeftElbowPitch" class="motor" />
-    <motor name="LeftElbowYaw_ctrl" joint="LeftElbowYaw" class="motor" />
-    <motor name="LeftWristPitch_ctrl" joint="LeftWristPitch" class="motor" />
-    <motor name="LeftWristRoll_ctrl" joint="LeftWristRoll" class="motor" />
-    <motor name="WaistYaw_ctrl" joint="WaistYaw" class="motor" />
-    <motor name="RightHipPitch_ctrl" joint="RightHipPitch" class="motor" />
-    <motor name="RightHipRoll_ctrl" joint="RightHipRoll" class="motor" />
-    <motor name="RightHipYaw_ctrl" joint="RightHipYaw" class="motor" />
-    <motor name="RightKnee_ctrl" joint="RightKnee" class="motor" />
-    <motor name="RightAnklePitch_ctrl" joint="RightAnklePitch" class="motor" />
-    <motor name="RightAnkleRoll_ctrl" joint="RightAnkleRoll" class="motor" />
-    <motor name="LeftHipPitch_ctrl" joint="LeftHipPitch" class="motor" />
-    <motor name="LeftHipRoll_ctrl" joint="LeftHipRoll" class="motor" />
-    <motor name="LeftHipYaw_ctrl" joint="LeftHipYaw" class="motor" />
-    <motor name="LeftKnee_ctrl" joint="LeftKnee" class="motor" />
-    <motor name="LeftAnklePitch_ctrl" joint="LeftAnklePitch" class="motor" />
-    <motor name="LeftAnkleRoll_ctrl" joint="LeftAnkleRoll" class="motor" />
-    <motor name="NeckYaw_ctrl" joint="NeckYaw" class="motor" />
-    <motor name="NeckRoll_ctrl" joint="NeckRoll" class="motor" />
-    <motor name="NeckPitch_ctrl" joint="NeckPitch" class="motor" />
-  </actuator>
-
   <contact>
     <exclude body1="Body" body2="RightShoulderPitch" />
     <exclude body1="RightShoulderPitch" body2="RightShoulderRoll" />
