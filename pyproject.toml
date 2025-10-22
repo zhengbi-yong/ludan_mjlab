@@ -46,6 +46,7 @@ dependencies = [
     "tensordict",
     "rsl-rl-lib",
     "tensorboard>=2.20.0",
+    "urdf2mjcf",
 ]
 
 [project.urls]
@@ -71,6 +72,7 @@ play = "mjlab.scripts.play:main"
 demo = "mjlab.scripts.demo:main"
 list_envs = "mjlab.scripts.list_envs:main"
 viz-nan = "mjlab.scripts.nan_viz:main"
+convert-urdf-to-mjcf = "mjlab.scripts.convert_urdf_to_mjcf:main"
 
 [[tool.uv.index]]
 url = "https://pypi.org/simple"
