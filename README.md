@@ -121,6 +121,81 @@ uv run play Mjlab-Your-Task-Id --agent random  # Sends uniform random actions.
 
 ---
 
+### 4. Train the Ludan V0 Custom Robot (Velocity Tracking)
+
+The repository ships with the `ludan_v0` URDF and a helper script that produces an MJCF
+compatible with the `Mjlab-Velocity-Flat-Custom` task. Start with the smoke test below to
+validate the pipeline before launching a large job.
+
+1. **Convert the URDF into MJCF** (re-run whenever you edit the URDF or meshes):
+
+   ```bash
+   uv run convert-urdf-to-mjcf
+   # Optional arguments:
+   #   --package-map ludan_v0=/path/to/package  # Override mesh search paths
+   #   --keep-resolved-urdf                     # Inspect the intermediate URDF
+   ```
+
+   The command generates `ludan_v0/mjcf/ludan_v0.xml` and removes temporary files by default.
+
+2. **Override the MJCF location (optional)**:
+
+   The training config now discovers `ludan_v0/mjcf/ludan_v0.xml` automatically when you
+   run commands from this repository (Windows PowerShell users can run `uv run` without
+   additional setup). If you copy the assets elsewhere, point the loader at the new
+   location:
+
+   ```bash
+   export MJLAB_CUSTOM_ROBOT_XML=/absolute/path/to/ludan_v0.xml
+   ```
+
+   Useful overrides for the Ludan V0 robot:
+
+   - `--env.robot.contact-bodies RightAnkleRoll LeftAnkleRoll` — enables air-time rewards.
+   - `--env.robot.foot-geom-names RightAnkleRoll_collision LeftAnkleRoll_collision` — enables per-foot friction randomization.
+   - `--env.robot.viewer-body-name Body` — centers the viewer on the torso when playing back a policy.
+
+3. **Run a smoke-test training session** (CPU friendly, ~32 envs):
+
+   ```bash
+   MUJOCO_GL=egl uv run train Mjlab-Velocity-Flat-Custom \
+     --env.scene.num-envs 32 \
+     --agent.max-iterations 50 \
+     --agent.run-name ludan-smoke \
+     --env.robot.contact-bodies RightAnkleRoll LeftAnkleRoll \
+     --env.robot.foot-geom-names RightAnkleRoll_collision LeftAnkleRoll_collision
+   ```
+
+4. **Inspect the policy in the interactive viewer** (point at the saved checkpoint):
+
+   ```bash
+   uv run play Mjlab-Velocity-Flat-Custom-Play \
+     --env.scene.num-envs 1 \
+     --checkpoint-file logs/rsl_rl/custom_robot_velocity/<run-folder>/model_00050.pt \
+     --env.robot.contact-bodies RightAnkleRoll LeftAnkleRoll \
+     --env.robot.foot-geom-names RightAnkleRoll_collision LeftAnkleRoll_collision
+   ```
+
+   Replace `<run-folder>` with the directory produced by the smoke-test job (for example,
+   `2024-06-01_12-34-56_ludan-smoke`).
+
+5. **Scale up once satisfied** (requires an NVIDIA GPU):
+
+   ```bash
+   MUJOCO_GL=egl uv run train Mjlab-Velocity-Flat-Custom \
+     --env.scene.num-envs 4096 \
+     --agent.max-iterations 30000 \
+     --agent.run-name ludan-production \
+     --env.robot.contact-bodies RightAnkleRoll LeftAnkleRoll \
+     --env.robot.foot-geom-names RightAnkleRoll_collision LeftAnkleRoll_collision
+   ```
+
+> [!TIP]
+> All `--env.robot.*` arguments accept tyro syntax, so you can tweak actuator gains, contact
+> sensor parameters, and initial poses without editing source code.
+
+---
+
 ## Documentation
 
 - **[Installation Guide](docs/installation_guide.md)**

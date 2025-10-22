@@ -1,0 +1,320 @@
+<mujoco model="ludan_v0">
+  <default>
+    <default class="robot">
+      <default class="motor">
+        <joint />
+        <motor />
+      </default>
+      <default class="visual">
+        <geom material="visualgeom" contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom material="collision_material" condim="3" contype="0" conaffinity="1" priority="1" group="1" solref="0.005 1" solimp="0.99 0.999 1e-05" friction="1 0.01 0.01" />
+      </default>
+    </default>
+  </default>
+
+  <compiler angle="radian" />
+
+  <asset>
+    <material name="" rgba="1 1 1 1" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <material name="collision_material" rgba="1.0 0.28 0.1 0.9" />
+    <mesh name="Body.STL" file="../meshes/Body.STL" />
+    <mesh name="RightShoulderPitch.STL" file="../meshes/RightShoulderPitch.STL" />
+    <mesh name="RightShoulderRoll.STL" file="../meshes/RightShoulderRoll.STL" />
+    <mesh name="RightShoulderYaw.STL" file="../meshes/RightShoulderYaw.STL" />
+    <mesh name="RightElbowPitch.STL" file="../meshes/RightElbowPitch.STL" />
+    <mesh name="RightElbowYaw.STL" file="../meshes/RightElbowYaw.STL" />
+    <mesh name="RightWristPitch.STL" file="../meshes/RightWristPitch.STL" />
+    <mesh name="RightWristRoll.STL" file="../meshes/RightWristRoll.STL" />
+    <mesh name="LeftShoulderPitch.STL" file="../meshes/LeftShoulderPitch.STL" />
+    <mesh name="LeftShoulderRoll.STL" file="../meshes/LeftShoulderRoll.STL" />
+    <mesh name="LeftShoulderYaw.STL" file="../meshes/LeftShoulderYaw.STL" />
+    <mesh name="LeftElbowPitch.STL" file="../meshes/LeftElbowPitch.STL" />
+    <mesh name="LeftElbowYaw.STL" file="../meshes/LeftElbowYaw.STL" />
+    <mesh name="LeftWristPitch.STL" file="../meshes/LeftWristPitch.STL" />
+    <mesh name="LeftWristRoll.STL" file="../meshes/LeftWristRoll.STL" />
+    <mesh name="WaistYaw.STL" file="../meshes/WaistYaw.STL" />
+    <mesh name="RightHipPitch.STL" file="../meshes/RightHipPitch.STL" />
+    <mesh name="RightHipRoll.STL" file="../meshes/RightHipRoll.STL" />
+    <mesh name="RightHipYaw.STL" file="../meshes/RightHipYaw.STL" />
+    <mesh name="RightKnee.STL" file="../meshes/RightKnee.STL" />
+    <mesh name="RightAnklePitch.STL" file="../meshes/RightAnklePitch.STL" />
+    <mesh name="RightAnkleRoll.STL" file="../meshes/RightAnkleRoll.STL" />
+    <mesh name="LeftHipPitch.STL" file="../meshes/LeftHipPitch.STL" />
+    <mesh name="LeftHipRoll.STL" file="../meshes/LeftHipRoll.STL" />
+    <mesh name="LeftHipYaw.STL" file="../meshes/LeftHipYaw.STL" />
+    <mesh name="LeftKnee.STL" file="../meshes/LeftKnee.STL" />
+    <mesh name="LeftAnklePitch.STL" file="../meshes/LeftAnklePitch.STL" />
+    <mesh name="LeftAnkleRoll.STL" file="../meshes/LeftAnkleRoll.STL" />
+    <mesh name="NeckYaw.STL" file="../meshes/NeckYaw.STL" />
+    <mesh name="NeckRoll.STL" file="../meshes/NeckRoll.STL" />
+    <mesh name="NeckPitch.STL" file="../meshes/NeckPitch.STL" />
+  </asset>
+
+  <worldbody>
+    <body name="Body" pos="0.00000000 0.00000000 0.88830001" quat="1 0 0 0" childclass="robot">
+      <freejoint name="floating_base" />
+      <geom name="Body_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="Body.STL" class="collision" />
+      <geom name="Body_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="Body.STL" class="visual" />
+      <body name="RightShoulderPitch" pos="-0.0322633432164609 -0.1152375336243 0.314519084670872" quat="-0.44033667216516825 -0.5247728110038166 -0.55806593308015 0.4682729186201563">
+        <joint name="RightShoulderPitch" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+        <inertial pos="0.000649259359740931 -0.0102344632841132 0.0855693151871858" quat="1.0 0.0 0.0 0.0" mass="0.399434037733127" diaginertia="0.000438266967537689 0.000563369056047911 0.0002563898582228" />
+        <geom name="RightShoulderPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightShoulderPitch.STL" class="collision" />
+        <geom name="RightShoulderPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightShoulderPitch.STL" class="visual" />
+        <body name="RightShoulderRoll" pos="0 0 0.0931999999999983" quat="0.7067727948493118 -0.706772794849307 -0.021730542121537758 0.021730542121537907">
+          <joint name="RightShoulderRoll" type="hinge" ref="0.0" class="motor" range="-0.261 2.6" axis="0 0 -1" />
+          <inertial pos="0.0283985609999437 -0.016395916837917 0.00928679086743772" quat="1.0 0.0 0.0 0.0" mass="0.0842363600759801" diaginertia="3.83586021615135e-05 5.01827076506183e-05 4.56934761942265e-05" />
+          <geom name="RightShoulderRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightShoulderRoll.STL" class="collision" />
+          <geom name="RightShoulderRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightShoulderRoll.STL" class="visual" />
+          <body name="RightShoulderYaw" pos="0 0 -0.0142862201502383" quat="0.6123724356957948 -0.612372435695797 -0.35355339059327207 0.3535533905932708">
+            <joint name="RightShoulderYaw" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+            <inertial pos="-0.00440229399088043 -5.54404399627992E-05 -0.211239092270953" quat="1.0 0.0 0.0 0.0" mass="1.48801509204858" diaginertia="0.00273302752670722 0.00268983764667374 0.000858677131785925" />
+            <geom name="RightShoulderYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightShoulderYaw.STL" class="collision" />
+            <geom name="RightShoulderYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightShoulderYaw.STL" class="visual" />
+            <body name="RightElbowPitch" pos="0 0 -0.259855262105579" quat="0.49999999999999817 0.5 0.5000000000000018 0.5">
+              <joint name="RightElbowPitch" type="hinge" ref="0.0" class="motor" range="-2.09 2.09" axis="0 0 -1" />
+              <inertial pos="6.52256026967279E-16 -0.021591110513575 0.0210579952501236" quat="1.0 0.0 0.0 0.0" mass="0.0438813047880979" diaginertia="1.80810396543836e-05 1.03757928904686e-05 1.59835320120182e-05" />
+              <geom name="RightElbowPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightElbowPitch.STL" class="collision" />
+              <geom name="RightElbowPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightElbowPitch.STL" class="visual" />
+              <body name="RightElbowYaw" pos="0 0 0.0052999999999998" quat="0.7071067811865462 -0.7071067811865488 0.0 0.0">
+                <joint name="RightElbowYaw" type="hinge" ref="0.0" class="motor" range="-3.14 3.14" axis="0 0 -1" />
+                <inertial pos="1.4345173978407E-05 -0.00303201104231993 -0.113601106543956" quat="1.0 0.0 0.0 0.0" mass="1.83396454448814" diaginertia="0.000686030243491682 0.000739531755099932 0.000706845335750933" />
+                <geom name="RightElbowYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightElbowYaw.STL" class="collision" />
+                <geom name="RightElbowYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightElbowYaw.STL" class="visual" />
+                <body name="RightWristPitch" pos="0 0 -0.163300000000002" quat="0.7071067811865462 0.7071067811865488 0.0 0.0">
+                  <joint name="RightWristPitch" type="hinge" ref="0.0" class="motor" range="-1.83 1.83" axis="0 0 -1" />
+                  <inertial pos="-0.00419634598488629 -0.0590033320610976 0.0106310495276834" quat="1.0 0.0 0.0 0.0" mass="0.989249767931049" diaginertia="0.000486339238994847 0.000363390695597361 0.000438176541327479" />
+                  <geom name="RightWristPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightWristPitch.STL" class="collision" />
+                  <geom name="RightWristPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightWristPitch.STL" class="visual" />
+                  <body name="RightWristRoll" pos="0 -0.0619999999999991 0.00929999999999997" quat="0.49999999999999817 0.5 -0.5000000000000018 -0.5">
+                    <joint name="RightWristRoll" type="hinge" ref="0.0" class="motor" range="-1.57 1.57" axis="0 0 -1" />
+                    <inertial pos="0.0912420192062163 0.00257025273467509 0.00736570749180179" quat="1.0 0.0 0.0 0.0" mass="0.380767938949113" diaginertia="0.000164898325375258 0.000476195990905417 0.00038541928208078" />
+                    <geom name="RightWristRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightWristRoll.STL" class="collision" />
+                    <geom name="RightWristRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightWristRoll.STL" class="visual" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="LeftShoulderPitch" pos="-0.0322633432164609 0.115157509310927 0.314519084670872" quat="-0.43557630787775437 0.5190996297622394 -0.5633468409551733 -0.47270412647037097">
+        <joint name="LeftShoulderPitch" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+        <inertial pos="0.0008561628491697 0.0102192347188457 0.0856026286995777" quat="1.0 0.0 0.0 0.0" mass="0.399434058453214" diaginertia="0.000438631502513642 0.000563004911156977 0.000256389467461728" />
+        <geom name="LeftShoulderPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftShoulderPitch.STL" class="collision" />
+        <geom name="LeftShoulderPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftShoulderPitch.STL" class="visual" />
+        <body name="LeftShoulderRoll" pos="0 0 0.0931999999999998" quat="0.7065167565932557 0.706516756593251 -0.028880316011940785 -0.028880316011940983">
+          <joint name="LeftShoulderRoll" type="hinge" ref="0.0" class="motor" range="-2.6 0.26" axis="0 0 -1" />
+          <inertial pos="0.0283985609999436 0.0163959168379152 0.00928679086743653" quat="1.0 0.0 0.0 0.0" mass="0.08423636007598" diaginertia="3.83586021615132e-05 5.01827076506186e-05 4.56934761942266e-05" />
+          <geom name="LeftShoulderRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftShoulderRoll.STL" class="collision" />
+          <geom name="LeftShoulderRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftShoulderRoll.STL" class="visual" />
+          <body name="LeftShoulderYaw" pos="0 0 -0.0142862201502394" quat="0.612372435695793 0.6123724356957952 -0.3535533905932751 -0.35355339059327384">
+            <joint name="LeftShoulderYaw" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+            <inertial pos="-0.00499140158943384 -3.59901253065148E-05 -0.211303564623458" quat="1.0 0.0 0.0 0.0" mass="1.48801509191213" diaginertia="0.00273302752678565 0.00269073980554384 0.000857774972949637" />
+            <geom name="LeftShoulderYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftShoulderYaw.STL" class="collision" />
+            <geom name="LeftShoulderYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftShoulderYaw.STL" class="visual" />
+            <body name="LeftElbowPitch" pos="0 0 -0.25985526210558" quat="0.49999999999999817 0.5 0.5000000000000018 0.5">
+              <joint name="LeftElbowPitch" type="hinge" ref="0.0" class="motor" range="-2.09 2.09" axis="0 0 -1" />
+              <inertial pos="-8.32667268468867E-17 -0.0215911105135739 0.0200579952501236" quat="1.0 0.0 0.0 0.0" mass="0.0438813047880978" diaginertia="1.80810396543835e-05 1.03757928904686e-05 1.59835320120182e-05" />
+              <geom name="LeftElbowPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftElbowPitch.STL" class="collision" />
+              <geom name="LeftElbowPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftElbowPitch.STL" class="visual" />
+              <body name="LeftElbowYaw" pos="0 0 0.00429999999999989" quat="0.7071067811865462 -0.7071067811865488 0.0 0.0">
+                <joint name="LeftElbowYaw" type="hinge" ref="0.0" class="motor" range="-3.14 3.14" axis="0 0 -1" />
+                <inertial pos="1.43451739795866E-05 -0.00303201104231678 -0.113601106543945" quat="1.0 0.0 0.0 0.0" mass="1.83396454448809" diaginertia="0.000686030243491668 0.000739531755099883 0.000706845335750937" />
+                <geom name="LeftElbowYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftElbowYaw.STL" class="collision" />
+                <geom name="LeftElbowYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftElbowYaw.STL" class="visual" />
+                <body name="LeftWristPitch" pos="0 0 -0.163299999999995" quat="0.7071067811865462 0.7071067811865488 0.0 0.0">
+                  <joint name="LeftWristPitch" type="hinge" ref="0.0" class="motor" range="-1.83 1.83" axis="0 0 -1" />
+                  <inertial pos="0.00419634598488667 -0.0589852236476009 0.0105645207770869" quat="1.0 0.0 0.0 0.0" mass="0.98924976793116" diaginertia="0.000486339238994898 0.000363865176816942 0.000437702060107975" />
+                  <geom name="LeftWristPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftWristPitch.STL" class="collision" />
+                  <geom name="LeftWristPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftWristPitch.STL" class="visual" />
+                  <body name="LeftWristRoll" pos="0 -0.0620000000000051 0.0093" quat="0.49999999999999817 -0.5 0.5000000000000018 -0.5">
+                    <joint name="LeftWristRoll" type="hinge" ref="0.0" class="motor" range="-1.57 1.57" axis="0 0 -1" />
+                    <inertial pos="0.0898854077367587 -0.00205511076766862 0.00767808007036554" quat="1.0 0.0 0.0 0.0" mass="0.377466759420197" diaginertia="0.000164740319408227 0.000264601446149405 0.000168151581142798" />
+                    <geom name="LeftWristRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftWristRoll.STL" class="collision" />
+                    <geom name="LeftWristRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftWristRoll.STL" class="visual" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="WaistYaw" pos="-0.018263 -4.0012E-05 0.0442" quat="-2.5973434669646147e-06 0.707105482506466 -0.7071080798547033 2.597353007557415e-06">
+        <joint name="WaistYaw" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+        <inertial pos="-0.000270482605294581 0.00033223026377511 0.103533228623644" quat="1.0 0.0 0.0 0.0" mass="0.74379092396542" diaginertia="0.00378351314719932 0.00336292409412108 0.00423285293962832" />
+        <geom name="WaistYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="WaistYaw.STL" class="collision" />
+        <geom name="WaistYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="WaistYaw.STL" class="visual" />
+        <body name="RightHipPitch" pos="-4.00121566864059E-05 0 0.1252" quat="0.49999999999999817 -0.5 0.5000000000000018 -0.5">
+          <joint name="RightHipPitch" type="hinge" ref="0.0" class="motor" range="-1.6 1.6" axis="0 0 -1" />
+          <inertial pos="-0.0320440300801776 -0.0294086007716143 0.124321410903361" quat="1.0 0.0 0.0 0.0" mass="0.282391256550772" diaginertia="0.00087907716234692 0.000595418427749129 0.000503452893683166" />
+          <geom name="RightHipPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightHipPitch.STL" class="collision" />
+          <geom name="RightHipPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightHipPitch.STL" class="visual" />
+          <body name="RightHipRoll" pos="0.00820000000000069 -0.0350000000000001 0.152540012156687" quat="0.49999999999999334 -0.5000000000000001 0.5000000000000068 -0.5000000000000001">
+            <joint name="RightHipRoll" type="hinge" ref="0.0" class="motor" range="-0.35 1.6" axis="0 0 -1" />
+            <inertial pos="0.0705622116791458 -2.09256425925952E-06 -0.00419931497515779" quat="1.0 0.0 0.0 0.0" mass="0.522797477930784" diaginertia="0.000693518299912773 0.00089212853691857 0.00102830965799074" />
+            <geom name="RightHipRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightHipRoll.STL" class="collision" />
+            <geom name="RightHipRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightHipRoll.STL" class="visual" />
+            <body name="RightHipYaw" pos="0 0 -0.00919999999999993" quat="0.4999999999999957 -0.5000000000000026 -0.5000000000000043 0.49999999999999756">
+              <joint name="RightHipYaw" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+              <inertial pos="0.00377169964257437 -0.0011150778879015 -0.265568302564995" quat="1.0 0.0 0.0 0.0" mass="3.0866086030039" diaginertia="0.0264398963605619 0.023554953286926 0.00660011170396239" />
+              <geom name="RightHipYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightHipYaw.STL" class="collision" />
+              <geom name="RightHipYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightHipYaw.STL" class="visual" />
+              <body name="RightKnee" pos="0 0.000587087047898643 -0.403000000000001" quat="0.5000000000000059 0.4999999999999975 -0.4999999999999941 -0.5000000000000026">
+                <joint name="RightKnee" type="hinge" ref="0.0" class="motor" range="-0.17 1.6" axis="0 0 -1" />
+                <inertial pos="-0.000244115099750079 -0.132318320694932 0.00110211533543508" quat="1.0 0.0 0.0 0.0" mass="1.79628746218042" diaginertia="0.0180565642762851 0.001480551251934 0.0190844708516855" />
+                <geom name="RightKnee_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightKnee.STL" class="collision" />
+                <geom name="RightKnee_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightKnee.STL" class="visual" />
+                <body name="RightAnklePitch" pos="-0.0215000000000051 -0.3328 -0.000934523809520638" quat="0.7071067811865462 0.0 0.0 0.7071067811865488">
+                  <joint name="RightAnklePitch" type="hinge" ref="0.0" class="motor" range="-0.52 0.52" axis="0 1 0" />
+                  <inertial pos="-0.0207677064692418 -2.77555756156289E-15 -4.86942708377569E-11" quat="1.0 0.0 0.0 0.0" mass="0.0497266892513697" diaginertia="2.18553773398794e-05 1.81726648490368e-05 3.81122142746635e-05" />
+                  <geom name="RightAnklePitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightAnklePitch.STL" class="collision" />
+                  <geom name="RightAnklePitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightAnklePitch.STL" class="visual" />
+                  <body name="RightAnkleRoll" pos="-0.0349999999999999 -0.0215000000000045 0" quat="0.49999999999999817 0.5 0.5 -0.5000000000000018">
+                    <joint name="RightAnkleRoll" type="hinge" ref="0.0" class="motor" range="-0.09 0.09" axis="0 0 -1" />
+                    <inertial pos="0.00014658031710521 -0.0162366105107852 0.00901586820093389" quat="1.0 0.0 0.0 0.0" mass="0.423784329189334" diaginertia="0.00143547782384892 0.00159807799310778 0.000250098936344727" />
+                    <geom name="RightAnkleRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="RightAnkleRoll.STL" class="collision" />
+                    <geom name="RightAnkleRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="RightAnkleRoll.STL" class="visual" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="LeftHipPitch" pos="-4.00121566865308E-05 0 0.1252" quat="0.5000000000000008 -0.4999999999999974 -0.4999999999999992 0.5000000000000026">
+          <joint name="LeftHipPitch" type="hinge" ref="0.0" class="motor" range="-1.6 1.6" axis="0 0 -1" />
+          <inertial pos="0.0320441137975664 -0.0297270997956851 0.124241422311115" quat="1.0 0.0 0.0 0.0" mass="0.282390658343301" diaginertia="0.000879076614032474 0.00059541725943582 0.000503451470472822" />
+          <geom name="LeftHipPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftHipPitch.STL" class="collision" />
+          <geom name="LeftHipPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftHipPitch.STL" class="visual" />
+          <body name="LeftHipRoll" pos="0 -0.0349999999999995 0.152459987843314" quat="0.4999999999999957 0.5000000000000026 -0.5000000000000043 -0.49999999999999756">
+            <joint name="LeftHipRoll" type="hinge" ref="0.0" class="motor" range="-1.6 0.35" axis="0 0 -1" />
+            <inertial pos="0.0705622116791479 -2.09256425999504E-06 0.00400068502484173" quat="1.0 0.0 0.0 0.0" mass="0.522797477930781" diaginertia="0.000693518299912768 0.000892590705838784 0.00102784748907052" />
+            <geom name="LeftHipRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftHipRoll.STL" class="collision" />
+            <geom name="LeftHipRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftHipRoll.STL" class="visual" />
+            <body name="LeftHipYaw" pos="0 0 -0.00100000000000052" quat="0.5000000000000008 0.4999999999999974 -0.4999999999999992 -0.5000000000000026">
+              <joint name="LeftHipYaw" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+              <inertial pos="0.00504725270234465 -0.000241328749118686 -0.265471047894519" quat="1.0 0.0 0.0 0.0" mass="2.93523693319794" diaginertia="0.0259698023353013 0.0230790629756764 0.00659622405325168" />
+              <geom name="LeftHipYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftHipYaw.STL" class="collision" />
+              <geom name="LeftHipYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftHipYaw.STL" class="visual" />
+              <body name="LeftKnee" pos="0 0 -0.4045" quat="0.49999999999999817 0.5 -0.5000000000000018 -0.5">
+                <joint name="LeftKnee" type="hinge" ref="0.0" class="motor" range="-0.17 1.6" axis="0 0 1" />
+                <inertial pos="0.00112894378272854 -0.132370510233735 0.00110211536423568" quat="1.0 0.0 0.0 0.0" mass="1.7962874358265" diaginertia="0.0180565232954021 0.00148059223413416 0.0190844708529551" />
+                <geom name="LeftKnee_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftKnee.STL" class="collision" />
+                <geom name="LeftKnee_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftKnee.STL" class="visual" />
+                <body name="LeftAnklePitch" pos="-0.0319129129520989 -0.343800000000001 -0.000934523809521935" quat="4.753575178863091e-15 -0.7071067811865462 0.7071067811865488 -4.753575178863108e-15">
+                  <joint name="LeftAnklePitch" type="hinge" ref="0.0" class="motor" range="-0.52 0.52" axis="0 0 1" />
+                  <inertial pos="0.00976770646924141 -0.0539999999999995 -4.8702639143805E-11" quat="1.0 0.0 0.0 0.0" mass="0.0497266892513695" diaginertia="2.18553773398793e-05 1.81726648490368e-05 3.81122142746634e-05" />
+                  <geom name="LeftAnklePitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftAnklePitch.STL" class="collision" />
+                  <geom name="LeftAnklePitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftAnklePitch.STL" class="visual" />
+                  <body name="LeftAnkleRoll" pos="0.0239999999999991 -0.0325000000000003 0" quat="0.7071067811865462 -0.7071067811865488 0.0 0.0">
+                    <joint name="LeftAnkleRoll" type="hinge" ref="0.0" class="motor" range="-0.09 0.09" axis="0 0 -1" />
+                    <inertial pos="0.0162366568296413 -0.000146673422036163 0.00901673637033555" quat="1.0 0.0 0.0 0.0" mass="0.423786947962651" diaginertia="0.00159810318894566 0.00143550361198925 0.000250098423979248" />
+                    <geom name="LeftAnkleRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LeftAnkleRoll.STL" class="collision" />
+                    <geom name="LeftAnkleRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LeftAnkleRoll.STL" class="visual" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="NeckYaw" pos="-0.032263 9.7233E-05 0.31235" quat="1.0 0.0 0.0 0.0">
+        <joint name="NeckYaw" type="hinge" ref="0.0" class="motor" range="-3 3" axis="0 0 -1" />
+        <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.5" diaginertia="0.0 0.0 0.0" />
+        <geom name="NeckYaw_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="NeckYaw.STL" class="collision" />
+        <geom name="NeckYaw_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="NeckYaw.STL" class="visual" />
+        <body name="NeckRoll" pos="0 0 0.1852" quat="0.49999999999999817 0.5 -0.5000000000000018 -0.5">
+          <joint name="NeckRoll" type="hinge" ref="0.0" class="motor" range="-0.7 0.7" axis="0 0 1" />
+          <inertial pos="0.00138285731553466 4.55816445487367E-05 -0.020324594146138" quat="1.0 0.0 0.0 0.0" mass="0.154027503183816" diaginertia="7.40519583259337e-05 8.4661615870976e-05 7.10766974653839e-05" />
+          <geom name="NeckRoll_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="NeckRoll.STL" class="collision" />
+          <geom name="NeckRoll_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="NeckRoll.STL" class="visual" />
+          <body name="NeckPitch" pos="0 0 -0.0246999999999825" quat="0.4940231535126967 0.49402315351258475 0.5059062401210009 0.5059062401211155">
+            <joint name="NeckPitch" type="hinge" ref="0.0" class="motor" range="-0.52 0.52" axis="0 0 -1" />
+            <inertial pos="0.109878013519724 -0.00621138750744678 0.0020453330844377" quat="1.0 0.0 0.0 0.0" mass="0.165906211949539" diaginertia="5.57930875172184e-05 0.000325444109936595 0.000323216622622941" />
+            <geom name="NeckPitch_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="NeckPitch.STL" class="collision" />
+            <geom name="NeckPitch_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="NeckPitch.STL" class="visual" />
+          </body>
+        </body>
+      </body>
+      <site name="Body_site" pos="0 0 0" quat="1 0 0 0" />
+      <camera name="front_camera" mode="track" fovy="90.0" quat="4.329780281177467e-17 4.329780281177466e-17 0.7071067811865475 0.7071067811865476" pos="0.0 2.0 0.5" />
+      <camera name="side_camera" mode="track" fovy="90.0" quat="-0.5 -0.4999999999999999 0.5 0.5000000000000001" pos="-2.0 0.0 0.5" />
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="RightShoulderPitch_ctrl" joint="RightShoulderPitch" class="motor" />
+    <motor name="RightShoulderRoll_ctrl" joint="RightShoulderRoll" class="motor" />
+    <motor name="RightShoulderYaw_ctrl" joint="RightShoulderYaw" class="motor" />
+    <motor name="RightElbowPitch_ctrl" joint="RightElbowPitch" class="motor" />
+    <motor name="RightElbowYaw_ctrl" joint="RightElbowYaw" class="motor" />
+    <motor name="RightWristPitch_ctrl" joint="RightWristPitch" class="motor" />
+    <motor name="RightWristRoll_ctrl" joint="RightWristRoll" class="motor" />
+    <motor name="LeftShoulderPitch_ctrl" joint="LeftShoulderPitch" class="motor" />
+    <motor name="LeftShoulderRoll_ctrl" joint="LeftShoulderRoll" class="motor" />
+    <motor name="LeftShoulderYaw_ctrl" joint="LeftShoulderYaw" class="motor" />
+    <motor name="LeftElbowPitch_ctrl" joint="LeftElbowPitch" class="motor" />
+    <motor name="LeftElbowYaw_ctrl" joint="LeftElbowYaw" class="motor" />
+    <motor name="LeftWristPitch_ctrl" joint="LeftWristPitch" class="motor" />
+    <motor name="LeftWristRoll_ctrl" joint="LeftWristRoll" class="motor" />
+    <motor name="WaistYaw_ctrl" joint="WaistYaw" class="motor" />
+    <motor name="RightHipPitch_ctrl" joint="RightHipPitch" class="motor" />
+    <motor name="RightHipRoll_ctrl" joint="RightHipRoll" class="motor" />
+    <motor name="RightHipYaw_ctrl" joint="RightHipYaw" class="motor" />
+    <motor name="RightKnee_ctrl" joint="RightKnee" class="motor" />
+    <motor name="RightAnklePitch_ctrl" joint="RightAnklePitch" class="motor" />
+    <motor name="RightAnkleRoll_ctrl" joint="RightAnkleRoll" class="motor" />
+    <motor name="LeftHipPitch_ctrl" joint="LeftHipPitch" class="motor" />
+    <motor name="LeftHipRoll_ctrl" joint="LeftHipRoll" class="motor" />
+    <motor name="LeftHipYaw_ctrl" joint="LeftHipYaw" class="motor" />
+    <motor name="LeftKnee_ctrl" joint="LeftKnee" class="motor" />
+    <motor name="LeftAnklePitch_ctrl" joint="LeftAnklePitch" class="motor" />
+    <motor name="LeftAnkleRoll_ctrl" joint="LeftAnkleRoll" class="motor" />
+    <motor name="NeckYaw_ctrl" joint="NeckYaw" class="motor" />
+    <motor name="NeckRoll_ctrl" joint="NeckRoll" class="motor" />
+    <motor name="NeckPitch_ctrl" joint="NeckPitch" class="motor" />
+  </actuator>
+
+  <contact>
+    <exclude body1="Body" body2="RightShoulderPitch" />
+    <exclude body1="RightShoulderPitch" body2="RightShoulderRoll" />
+    <exclude body1="RightShoulderRoll" body2="RightShoulderYaw" />
+    <exclude body1="RightShoulderYaw" body2="RightElbowPitch" />
+    <exclude body1="RightElbowPitch" body2="RightElbowYaw" />
+    <exclude body1="RightElbowYaw" body2="RightWristPitch" />
+    <exclude body1="RightWristPitch" body2="RightWristRoll" />
+    <exclude body1="Body" body2="LeftShoulderPitch" />
+    <exclude body1="LeftShoulderPitch" body2="LeftShoulderRoll" />
+    <exclude body1="LeftShoulderRoll" body2="LeftShoulderYaw" />
+    <exclude body1="LeftShoulderYaw" body2="LeftElbowPitch" />
+    <exclude body1="LeftElbowPitch" body2="LeftElbowYaw" />
+    <exclude body1="LeftElbowYaw" body2="LeftWristPitch" />
+    <exclude body1="LeftWristPitch" body2="LeftWristRoll" />
+    <exclude body1="Body" body2="WaistYaw" />
+    <exclude body1="WaistYaw" body2="RightHipPitch" />
+    <exclude body1="RightHipPitch" body2="RightHipRoll" />
+    <exclude body1="RightHipRoll" body2="RightHipYaw" />
+    <exclude body1="RightHipYaw" body2="RightKnee" />
+    <exclude body1="RightKnee" body2="RightAnklePitch" />
+    <exclude body1="RightAnklePitch" body2="RightAnkleRoll" />
+    <exclude body1="WaistYaw" body2="LeftHipPitch" />
+    <exclude body1="LeftHipPitch" body2="LeftHipRoll" />
+    <exclude body1="LeftHipRoll" body2="LeftHipYaw" />
+    <exclude body1="LeftHipYaw" body2="LeftKnee" />
+    <exclude body1="LeftKnee" body2="LeftAnklePitch" />
+    <exclude body1="LeftAnklePitch" body2="LeftAnkleRoll" />
+    <exclude body1="Body" body2="NeckYaw" />
+    <exclude body1="NeckYaw" body2="NeckRoll" />
+    <exclude body1="NeckRoll" body2="NeckPitch" />
+  </contact>
+
+  <sensor>
+    <framepos name="Body_site_pos" objtype="site" objname="Body_site" />
+    <framequat name="Body_site_quat" objtype="site" objname="Body_site" />
+    <framelinvel name="Body_site_linvel" objtype="site" objname="Body_site" />
+    <frameangvel name="Body_site_angvel" objtype="site" objname="Body_site" />
+    <velocimeter name="Body_site_vel" site="Body_site" />
+  </sensor>
+</mujoco>
