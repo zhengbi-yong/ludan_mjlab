@@ -75,11 +75,10 @@ def test_make_custom_robot_entity_cfg_generates_contact_sensors(minimal_mjcf: Pa
   assert entity.joint_names == ["hip", "knee"]
 
 
-def test_custom_velocity_env_cfg_populates_scene(minimal_mjcf: Path, monkeypatch: pytest.MonkeyPatch):
-  monkeypatch.setenv("MJLAB_CUSTOM_ROBOT_XML", str(minimal_mjcf))
-
+def test_custom_velocity_env_cfg_populates_scene(minimal_mjcf: Path):
   env_cfg = CustomRobotVelocityEnvCfg(
     robot=CustomRobotAssetCfg(
+      mjcf_path=str(minimal_mjcf),
       contact_bodies=("foot",),
       foot_geom_names=("foot_geom",),
       viewer_body_name="torso",
@@ -102,3 +101,8 @@ def test_play_cfg_extends_episode_length(minimal_mjcf: Path):
     robot=CustomRobotAssetCfg(mjcf_path=str(minimal_mjcf))
   )
   assert cfg.episode_length_s == int(1e9)
+
+
+def test_default_mjcf_path_resolves_to_repo_asset():
+  cfg = CustomRobotAssetCfg()
+  assert cfg.resolve_mjcf_path().is_file()

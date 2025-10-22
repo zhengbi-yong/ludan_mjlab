@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Iterable
 
 import mujoco
 
@@ -13,20 +13,57 @@ from mjlab.entity import EntityArticulationInfoCfg, EntityCfg
 from mjlab.utils.os import update_assets
 from mjlab.utils.spec_config import ActuatorCfg, ContactSensorCfg
 
+_DEFAULT_MJCF_RELATIVE = Path("ludan_v0") / "mjcf" / "ludan_v0.xml"
+
+
+def _normalize_candidate(path: str) -> Path:
+  """Expand and resolve a user-provided path in a platform friendly way."""
+
+  candidate = Path(path).expanduser()
+  if not candidate.is_absolute():
+    candidate = Path.cwd() / candidate
+  return candidate
+
+
+def _iter_default_candidates() -> Iterable[Path]:
+  """Yield known locations for the bundled Ludan V0 MJCF asset."""
+
+  module_path = Path(__file__).resolve()
+
+  # 1. Check a few parent directories for a repo-style layout.
+  parent_depths = (6, 5, 4)
+  for depth in parent_depths:
+    if len(module_path.parents) > depth:
+      yield module_path.parents[depth] / _DEFAULT_MJCF_RELATIVE
+
+  # 2. Current working directory (useful when running from a git checkout).
+  yield Path.cwd() / _DEFAULT_MJCF_RELATIVE
+
 
 def _resolve_mjcf_path(path: str | None) -> Path:
-  """Resolve an MJCF path from either the provided string or env variable."""
-  candidate = path or os.environ.get("MJLAB_CUSTOM_ROBOT_XML", "")
-  if not candidate:
-    raise FileNotFoundError(
-      "No MJCF path provided for custom robot. Set MJLAB_CUSTOM_ROBOT_XML or "
-      "override --env.robot.mjcf-path."
-    )
+  """Resolve an MJCF path from CLI overrides, env vars, or bundled assets."""
 
-  resolved = Path(candidate).expanduser().resolve()
-  if not resolved.is_file():
-    raise FileNotFoundError(f"Custom robot MJCF not found at: {resolved}")
-  return resolved
+  attempted: list[Path] = []
+
+  for candidate_str in (path, os.environ.get("MJLAB_CUSTOM_ROBOT_XML")):
+    if not candidate_str:
+      continue
+    candidate = _normalize_candidate(candidate_str)
+    attempted.append(candidate)
+    if candidate.is_file():
+      return candidate.resolve()
+
+  for default_candidate in _iter_default_candidates():
+    attempted.append(default_candidate)
+    if default_candidate.is_file():
+      return default_candidate.resolve()
+
+  attempted_str = "\n  - ".join(str(p) for p in attempted)
+  raise FileNotFoundError(
+    "No MJCF path provided for custom robot. Provide --env.robot.mjcf-path, "
+    "set MJLAB_CUSTOM_ROBOT_XML, or place the asset at one of the known "
+    f"locations:\n  - {attempted_str}"
+  )
 
 
 def _default_joint_map(value: float) -> dict[str, float]:
@@ -74,7 +111,7 @@ def _make_spec_loader(
 class CustomRobotAssetCfg:
   """Configuration describing how to import a custom robot MJCF asset."""
 
-  mjcf_path: str = ""
+  mjcf_path: str = str(_DEFAULT_MJCF_RELATIVE)
   """Absolute or relative path to the MJCF file describing the robot."""
 
   mesh_assets_dir: str | None = None
