@@ -1,0 +1,1787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="ludan_v0">
+  <link
+    name="Body">
+    <inertial>
+      <origin
+        xyz="-0.0152240784632266 0.00062608413149691 0.141622269399153"
+        rpy="0 0 0" />
+      <mass
+        value="8.74374296139117" />
+      <inertia
+        ixx="0.0473817781113333"
+        ixy="8.07737065111168E-05"
+        ixz="0.000506515175561223"
+        iyy="0.0451932389195734"
+        iyz="-9.47147111266396E-06"
+        izz="0.0434202297379664" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/Body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/Body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="RightShoulderPitch">
+    <inertial>
+      <origin
+        xyz="0.000649259359740931 -0.0102344632841132 0.0855693151871858"
+        rpy="0 0 0" />
+      <mass
+        value="0.399434037733127" />
+      <inertia
+        ixx="0.000438266967537689"
+        ixy="-7.73429398851146E-06"
+        ixz="-9.04193137842321E-07"
+        iyy="0.000563369056047911"
+        iyz="1.60874802335731E-05"
+        izz="0.0002563898582228" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightShoulderPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightShoulderPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightShoulderPitch"
+    type="revolute">
+    <origin
+      xyz="-0.0322633432164609 -0.1152375336243 0.314519084670872"
+      rpy="-2.80633430581836 1.38585794535674 1.91143454067405" />
+    <parent
+      link="Body" />
+    <child
+      link="RightShoulderPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightShoulderRoll">
+    <inertial>
+      <origin
+        xyz="0.0283985609999437 -0.016395916837917 0.00928679086743772"
+        rpy="0 0 0" />
+      <mass
+        value="0.0842363600759801" />
+      <inertia
+        ixx="3.83586021615135E-05"
+        ixy="1.02399757305923E-05"
+        ixz="1.32898641792268E-05"
+        iyy="5.01827076506183E-05"
+        iyz="-7.67290666137038E-06"
+        izz="4.56934761942265E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightShoulderRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightShoulderRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightShoulderRoll"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0931999999999983"
+      rpy="-1.57079632679489 0 0.0614729335395356" />
+    <parent
+      link="RightShoulderPitch" />
+    <child
+      link="RightShoulderRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.261"
+      upper="2.6"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightShoulderYaw">
+    <inertial>
+      <origin
+        xyz="-0.00440229399088043 -5.54404399627992E-05 -0.211239092270953"
+        rpy="0 0 0" />
+      <mass
+        value="1.48801509204858" />
+      <inertia
+        ixx="0.00273302752670722"
+        ixy="-1.13916521054185E-07"
+        ixz="-0.000375651189212337"
+        iyy="0.00268983764667374"
+        iyz="4.30135940240202E-07"
+        izz="0.000858677131785925" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightShoulderYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightShoulderYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightShoulderYaw"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0142862201502383"
+      rpy="-1.5707963267949 0 1.04719755119659" />
+    <parent
+      link="RightShoulderRoll" />
+    <child
+      link="RightShoulderYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightElbowPitch">
+    <inertial>
+      <origin
+        xyz="6.52256026967279E-16 -0.021591110513575 0.0210579952501236"
+        rpy="0 0 0" />
+      <mass
+        value="0.0438813047880979" />
+      <inertia
+        ixx="1.80810396543836E-05"
+        ixy="2.74528647736014E-21"
+        ixz="7.57030103690086E-21"
+        iyy="1.03757928904686E-05"
+        iyz="-5.18605928564471E-06"
+        izz="1.59835320120182E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightElbowPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightElbowPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightElbowPitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.259855262105579"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="RightShoulderYaw" />
+    <child
+      link="RightElbowPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.09"
+      upper="2.09"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightElbowYaw">
+    <inertial>
+      <origin
+        xyz="1.4345173978407E-05 -0.00303201104231993 -0.113601106543956"
+        rpy="0 0 0" />
+      <mass
+        value="1.83396454448814" />
+      <inertia
+        ixx="0.000686030243491682"
+        ixy="-9.45777875907854E-07"
+        ixz="5.15511842189736E-08"
+        iyy="0.000739531755099932"
+        iyz="1.15952973367071E-05"
+        izz="0.000706845335750933" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightElbowYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightElbowYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightElbowYaw"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0052999999999998"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="RightElbowPitch" />
+    <child
+      link="RightElbowYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightWristPitch">
+    <inertial>
+      <origin
+        xyz="-0.00419634598488629 -0.0590033320610976 0.0106310495276834"
+        rpy="0 0 0" />
+      <mass
+        value="0.989249767931049" />
+      <inertia
+        ixx="0.000486339238994847"
+        ixy="3.32579444406753E-05"
+        ixz="1.31760301658227E-05"
+        iyy="0.000363390695597361"
+        iyz="-3.15487399745197E-05"
+        izz="0.000438176541327479" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightWristPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightWristPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightWristPitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.163300000000002"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="RightElbowYaw" />
+    <child
+      link="RightWristPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.83"
+      upper="1.83"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightWristRoll">
+    <inertial>
+      <origin
+        xyz="0.0912420192062163 0.00257025273467509 0.00736570749180179"
+        rpy="0 0 0" />
+      <mass
+        value="0.380767938949113" />
+      <inertia
+        ixx="0.000164898325375258"
+        ixy="2.41583944639132E-06"
+        ixz="1.23494736177959E-05"
+        iyy="0.000476195990905417"
+        iyz="-5.4112053925284E-06"
+        izz="0.00038541928208078" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightWristRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightWristRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightWristRoll"
+    type="revolute">
+    <origin
+      xyz="0 -0.0619999999999991 0.00929999999999997"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="RightWristPitch" />
+    <child
+      link="RightWristRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftShoulderPitch">
+    <inertial>
+      <origin
+        xyz="0.0008561628491697 0.0102192347188457 0.0856026286995777"
+        rpy="0 0 0" />
+      <mass
+        value="0.399434058453214" />
+      <inertia
+        ixx="0.000438631502513642"
+        ixy="1.02587473751059E-05"
+        ixz="-1.39900896142113E-06"
+        iyy="0.000563004911156977"
+        iyz="-1.60326318338583E-05"
+        izz="0.000256389467461728" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftShoulderPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftShoulderPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftShoulderPitch"
+    type="revolute">
+    <origin
+      xyz="-0.0322633432164609 0.115157509310927 0.314519084670872"
+      rpy="2.70808193904271 1.37826041279858 -2.01145956661368" />
+    <parent
+      link="Body" />
+    <child
+      link="LeftShoulderPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftShoulderRoll">
+    <inertial>
+      <origin
+        xyz="0.0283985609999436 0.0163959168379152 0.00928679086743653"
+        rpy="0 0 0" />
+      <mass
+        value="0.08423636007598" />
+      <inertia
+        ixx="3.83586021615132E-05"
+        ixy="-1.02399757305921E-05"
+        ixz="1.32898641792269E-05"
+        iyy="5.01827076506186E-05"
+        iyz="7.67290666137014E-06"
+        izz="4.56934761942266E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftShoulderRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftShoulderRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftShoulderRoll"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0931999999999998"
+      rpy="1.57079632679489 0 -0.0817085968943328" />
+    <parent
+      link="LeftShoulderPitch" />
+    <child
+      link="LeftShoulderRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.6"
+      upper="0.26"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftShoulderYaw">
+    <inertial>
+      <origin
+        xyz="-0.00499140158943384 -3.59901253065148E-05 -0.211303564623458"
+        rpy="0 0 0" />
+      <mass
+        value="1.48801509191213" />
+      <inertia
+        ixx="0.00273302752678565"
+        ixy="-5.49436979989515E-08"
+        ixz="-0.000375813240545769"
+        iyy="0.00269073980554384"
+        iyz="-8.383590213955E-07"
+        izz="0.000857774972949637" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftShoulderYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftShoulderYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftShoulderYaw"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0142862201502394"
+      rpy="1.5707963267949 0 -1.0471975511966" />
+    <parent
+      link="LeftShoulderRoll" />
+    <child
+      link="LeftShoulderYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LeftElbowPitch">
+    <inertial>
+      <origin
+        xyz="-8.32667268468867E-17 -0.0215911105135739 0.0200579952501236"
+        rpy="0 0 0" />
+      <mass
+        value="0.0438813047880978" />
+      <inertia
+        ixx="1.80810396543835E-05"
+        ixy="-3.18926182275766E-22"
+        ixz="7.32956778935643E-22"
+        iyy="1.03757928904686E-05"
+        iyz="-5.18605928564471E-06"
+        izz="1.59835320120182E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftElbowPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftElbowPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftElbowPitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.25985526210558"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="LeftShoulderYaw" />
+    <child
+      link="LeftElbowPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.09"
+      upper="2.09"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftElbowYaw">
+    <inertial>
+      <origin
+        xyz="1.43451739795866E-05 -0.00303201104231678 -0.113601106543945"
+        rpy="0 0 0" />
+      <mass
+        value="1.83396454448809" />
+      <inertia
+        ixx="0.000686030243491668"
+        ixy="-9.4577787588888E-07"
+        ixz="5.15511842540063E-08"
+        iyy="0.000739531755099883"
+        iyz="1.1595297336689E-05"
+        izz="0.000706845335750937" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftElbowYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftElbowYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftElbowYaw"
+    type="revolute">
+    <origin
+      xyz="0 0 0.00429999999999989"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="LeftElbowPitch" />
+    <child
+      link="LeftElbowYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftWristPitch">
+    <inertial>
+      <origin
+        xyz="0.00419634598488667 -0.0589852236476009 0.0105645207770869"
+        rpy="0 0 0" />
+      <mass
+        value="0.98924976793116" />
+      <inertia
+        ixx="0.000486339238994898"
+        ixy="-3.32316260004728E-05"
+        ixz="-1.32727218469249E-05"
+        iyy="0.000363865176816942"
+        iyz="-3.23557671754082E-05"
+        izz="0.000437702060107975" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftWristPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftWristPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftWristPitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.163299999999995"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="LeftElbowYaw" />
+    <child
+      link="LeftWristPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.83"
+      upper="1.83"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftWristRoll">
+    <inertial>
+      <origin
+        xyz="0.0898854077367587 -0.00205511076766862 0.00767808007036554"
+        rpy="0 0 0" />
+      <mass
+        value="0.377466759420197" />
+      <inertia
+        ixx="0.000164740319408227"
+        ixy="2.49393704861886E-06"
+        ixz="9.26231666356872E-06"
+        iyy="0.000264601446149405"
+        iyz="3.83076919852541E-06"
+        izz="0.000168151581142798" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftWristRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftWristRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftWristRoll"
+    type="revolute">
+    <origin
+      xyz="0 -0.0620000000000051 0.0093"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="LeftWristPitch" />
+    <child
+      link="LeftWristRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="WaistYaw">
+    <inertial>
+      <origin
+        xyz="-0.000270482605294581 0.00033223026377511 0.103533228623644"
+        rpy="0 0 0" />
+      <mass
+        value="0.74379092396542" />
+      <inertia
+        ixx="0.00378351314719932"
+        ixy="-6.49148532580561E-06"
+        ixz="-1.03315930764951E-05"
+        iyy="0.00336292409412108"
+        iyz="1.4214058788689E-05"
+        izz="0.00423285293962832" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/WaistYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/WaistYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WaistYaw"
+    type="revolute">
+    <origin
+      xyz="-0.018263 -4.0012E-05 0.0442"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="Body" />
+    <child
+      link="WaistYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightHipPitch">
+    <inertial>
+      <origin
+        xyz="-0.0320440300801776 -0.0294086007716143 0.124321410903361"
+        rpy="0 0 0" />
+      <mass
+        value="0.282391256550772" />
+      <inertia
+        ixx="0.00087907716234692"
+        ixy="-3.55669497225502E-05"
+        ixz="9.47002359946169E-05"
+        iyy="0.000595418427749129"
+        iyz="4.80026161592818E-05"
+        izz="0.000503452893683166" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightHipPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightHipPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightHipPitch"
+    type="revolute">
+    <origin
+      xyz="-4.00121566864059E-05 0 0.1252"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="WaistYaw" />
+    <child
+      link="RightHipPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.6"
+      upper="1.6"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightHipRoll">
+    <inertial>
+      <origin
+        xyz="0.0705622116791458 -2.09256425925952E-06 -0.00419931497515779"
+        rpy="0 0 0" />
+      <mass
+        value="0.522797477930784" />
+      <inertia
+        ixx="0.000693518299912773"
+        ixy="3.29398648194142E-08"
+        ixz="7.61924305303984E-05"
+        iyy="0.00089212853691857"
+        iyz="-8.51674216357329E-08"
+        izz="0.00102830965799074" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightHipRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightHipRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightHipRoll"
+    type="revolute">
+    <origin
+      xyz="0.00820000000000069 -0.0350000000000001 0.152540012156687"
+      rpy="-1.57079632679491 0 -1.57079632679491" />
+    <parent
+      link="RightHipPitch" />
+    <child
+      link="RightHipRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.35"
+      upper="1.6"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightHipYaw">
+    <inertial>
+      <origin
+        xyz="0.00377169964257437 -0.0011150778879015 -0.265568302564995"
+        rpy="0 0 0" />
+      <mass
+        value="3.0866086030039" />
+      <inertia
+        ixx="0.0264398963605619"
+        ixy="8.61004585375622E-05"
+        ixz="0.00191872834507903"
+        iyy="0.023554953286926"
+        iyz="-0.000226060637978593"
+        izz="0.00660011170396239" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightHipYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightHipYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightHipYaw"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.00919999999999993"
+      rpy="-1.57079632679491 0 1.5707963267949" />
+    <parent
+      link="RightHipRoll" />
+    <child
+      link="RightHipYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightKnee">
+    <inertial>
+      <origin
+        xyz="-0.000244115099750079 -0.132318320694932 0.00110211533543508"
+        rpy="0 0 0" />
+      <mass
+        value="1.79628746218042" />
+      <inertia
+        ixx="0.0180565642762851"
+        ixy="-0.0009055592418266"
+        ixz="-2.30902040314087E-05"
+        iyy="0.001480551251934"
+        iyz="-0.000417586269697989"
+        izz="0.0190844708516855" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightKnee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightKnee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightKnee"
+    type="revolute">
+    <origin
+      xyz="0 0.000587087047898643 -0.403000000000001"
+      rpy="1.57079632679488 0 -1.57079632679489" />
+    <parent
+      link="RightHipYaw" />
+    <child
+      link="RightKnee" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.17"
+      upper="1.6"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightAnklePitch">
+    <inertial>
+      <origin
+        xyz="-0.0207677064692418 -2.77555756156289E-15 -4.86942708377569E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.0497266892513697" />
+      <inertia
+        ixx="2.18553773398794E-05"
+        ixy="2.34664251321277E-21"
+        ixz="-3.56102355554568E-14"
+        iyy="1.81726648490368E-05"
+        iyz="5.10887513733283E-14"
+        izz="3.81122142746635E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightAnklePitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightAnklePitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightAnklePitch"
+    type="revolute">
+    <origin
+      xyz="-0.0215000000000051 -0.3328 -0.000934523809520638"
+      rpy="0 0 1.5707963267949" />
+    <parent
+      link="RightKnee" />
+    <child
+      link="RightAnklePitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.52"
+      upper="0.52"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RightAnkleRoll">
+    <inertial>
+      <origin
+        xyz="0.00014658031710521 -0.0162366105107852 0.00901586820093389"
+        rpy="0 0 0" />
+      <mass
+        value="0.423784329189334" />
+      <inertia
+        ixx="0.00143547782384892"
+        ixy="-5.1049792153969E-08"
+        ixz="-6.21899828428356E-06"
+        iyy="0.00159807799310778"
+        iyz="-8.4453907092175E-06"
+        izz="0.000250098936344727" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightAnkleRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/RightAnkleRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightAnkleRoll"
+    type="revolute">
+    <origin
+      xyz="-0.0349999999999999 -0.0215000000000045 0"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="RightAnklePitch" />
+    <child
+      link="RightAnkleRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.09"
+      upper="0.09"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftHipPitch">
+    <inertial>
+      <origin
+        xyz="0.0320441137975664 -0.0297270997956851 0.124241422311115"
+        rpy="0 0 0" />
+      <mass
+        value="0.282390658343301" />
+      <inertia
+        ixx="0.000879076614032474"
+        ixy="3.55575407345079E-05"
+        ixz="-9.46998837296546E-05"
+        iyy="0.00059541725943582"
+        iyz="4.80257976213937E-05"
+        izz="0.000503451470472822" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftHipPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftHipPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftHipPitch"
+    type="revolute">
+    <origin
+      xyz="-4.00121566865308E-05 0 0.1252"
+      rpy="-1.57079632679489 0 1.5707963267949" />
+    <parent
+      link="WaistYaw" />
+    <child
+      link="LeftHipPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.6"
+      upper="1.6"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftHipRoll">
+    <inertial>
+      <origin
+        xyz="0.0705622116791479 -2.09256425999504E-06 0.00400068502484173"
+        rpy="0 0 0" />
+      <mass
+        value="0.522797477930781" />
+      <inertia
+        ixx="0.000693518299912768"
+        ixy="3.29398648159847E-08"
+        ixz="7.61924305304008E-05"
+        iyy="0.000892590705838784"
+        iyz="-4.05008006868648E-08"
+        izz="0.00102784748907052" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftHipRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftHipRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftHipRoll"
+    type="revolute">
+    <origin
+      xyz="0 -0.0349999999999995 0.152459987843314"
+      rpy="1.57079632679491 0 -1.5707963267949" />
+    <parent
+      link="LeftHipPitch" />
+    <child
+      link="LeftHipRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.6"
+      upper="0.35"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftHipYaw">
+    <inertial>
+      <origin
+        xyz="0.00504725270234465 -0.000241328749118686 -0.265471047894519"
+        rpy="0 0 0" />
+      <mass
+        value="2.93523693319794" />
+      <inertia
+        ixx="0.0259698023353013"
+        ixy="-8.73716411862931E-05"
+        ixz="0.00191874250827129"
+        iyy="0.0230790629756764"
+        iyz="0.000222609455166064"
+        izz="0.00659622405325168" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftHipYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftHipYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftHipYaw"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.00100000000000052"
+      rpy="1.57079632679489 0 -1.5707963267949" />
+    <parent
+      link="LeftHipRoll" />
+    <child
+      link="LeftHipYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftKnee">
+    <inertial>
+      <origin
+        xyz="0.00112894378272854 -0.132370510233735 0.00110211536423568"
+        rpy="0 0 0" />
+      <mass
+        value="1.7962874358265" />
+      <inertia
+        ixx="0.0180565232954021"
+        ixy="0.000906060689577554"
+        ixz="2.30573397229348E-05"
+        iyy="0.00148059223413416"
+        iyz="-0.000417693298931351"
+        izz="0.0190844708529551" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftKnee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftKnee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftKnee"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.4045"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="LeftHipYaw" />
+    <child
+      link="LeftKnee" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.17"
+      upper="1.6"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftAnklePitch">
+    <inertial>
+      <origin
+        xyz="0.00976770646924141 -0.0539999999999995 -4.8702639143805E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.0497266892513695" />
+      <inertia
+        ixx="2.18553773398793E-05"
+        ixy="-3.82648793620849E-21"
+        ixz="3.56100715363005E-14"
+        iyy="1.81726648490368E-05"
+        iyz="-5.10887784806053E-14"
+        izz="3.81122142746634E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftAnklePitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftAnklePitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftAnklePitch"
+    type="revolute">
+    <origin
+      xyz="-0.0319129129520989 -0.343800000000001 -0.000934523809521935"
+      rpy="-3.14159265358978 0 -1.5707963267949" />
+    <parent
+      link="LeftKnee" />
+    <child
+      link="LeftAnklePitch" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.52"
+      upper="0.52"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="LeftAnkleRoll">
+    <inertial>
+      <origin
+        xyz="0.0162366568296413 -0.000146673422036163 0.00901673637033555"
+        rpy="0 0 0" />
+      <mass
+        value="0.423786947962651" />
+      <inertia
+        ixx="0.00159810318894566"
+        ixy="-5.15811084486362E-08"
+        ixz="8.44591721217415E-06"
+        iyy="0.00143550361198925"
+        iyz="6.21036776560053E-06"
+        izz="0.000250098423979248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftAnkleRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/LeftAnkleRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftAnkleRoll"
+    type="revolute">
+    <origin
+      xyz="0.0239999999999991 -0.0325000000000003 0"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="LeftAnklePitch" />
+    <child
+      link="LeftAnkleRoll" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.09"
+      upper="0.09"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="NeckYaw">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/NeckYaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/NeckYaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="NeckYaw"
+    type="revolute">
+    <origin
+      xyz="-0.032263 9.7233E-05 0.31235"
+      rpy="0 0 0" />
+    <parent
+      link="Body" />
+    <child
+      link="NeckYaw" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="NeckRoll">
+    <inertial>
+      <origin
+        xyz="0.00138285731553466 4.55816445487367E-05 -0.020324594146138"
+        rpy="0 0 0" />
+      <mass
+        value="0.154027503183816" />
+      <inertia
+        ixx="7.40519583259337E-05"
+        ixy="-2.47240128380056E-07"
+        ixz="-2.00344775020786E-06"
+        iyy="8.4661615870976E-05"
+        iyz="-8.74121067857036E-08"
+        izz="7.10766974653839E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/NeckRoll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/NeckRoll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="NeckRoll"
+    type="revolute">
+    <origin
+      xyz="0 0 0.1852"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="NeckYaw" />
+    <child
+      link="NeckRoll" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.7"
+      upper="0.7"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="NeckPitch">
+    <inertial>
+      <origin
+        xyz="0.109878013519724 -0.00621138750744678 0.0020453330844377"
+        rpy="0 0 0" />
+      <mass
+        value="0.165906211949539" />
+      <inertia
+        ixx="5.57930875172184E-05"
+        ixy="-3.64059085553665E-05"
+        ixz="2.57325485558246E-05"
+        iyy="0.000325444109936595"
+        iyz="-4.85761480779336E-06"
+        izz="0.000323216622622941" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/NeckPitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ludan_v0/meshes/NeckPitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="NeckPitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0246999999999825"
+      rpy="1.57079632679467 0 1.59456305937524" />
+    <parent
+      link="NeckRoll" />
+    <child
+      link="NeckPitch" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.52"
+      upper="0.52"
+      effort="100"
+      velocity="100" />
+  </joint>
+</robot>
